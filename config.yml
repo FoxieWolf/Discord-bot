@@ -8,7 +8,7 @@
 # ╔═══════════════════════════════════════════════════════════════════════════════╗
 # ║                           BOT AUTHENTICATION                                  ║
 # ╚═══════════════════════════════════════════════════════════════════════════════╝
-bot_token: "MTQzMDM1OTE3NjQwMzc1MDk1Mg.Gu6A3q.8hSS9qxC-UNBZHZdn9sZ-FIgHLNUyvWzGXO5k0"
+bot_token: "MTQ0MTQ2OTQxNDE4MzgwMDg2Mw.GQWd9b.vxsg9ebtZEFmMtAHhHGItQcEoF7gzvojsAAlPo"
 
 # ╔═══════════════════════════════════════════════════════════════════════════════╗
 # ║                           SERVER CONFIGURATION                                ║
@@ -98,6 +98,80 @@ session_management:
   footer_text: "Property of Ishhs Greenville Roleplay™"
 
 # ╔═══════════════════════════════════════════════════════════════════════════════╗
+# ║                      WELCOME & AUTO-ROLE CONFIGURATION                        ║
+# ╚═══════════════════════════════════════════════════════════════════════════════╝
+welcome:
+  # Enable welcome messages
+  enabled: true
+  
+  # Welcome channel ID
+  channel_id: "1312743983973142528"
+  
+  # Welcome message (use {user} for user mention, {server} for server name)
+  message: "Hello {user}, and welcome to  {server}. We thank you for joining us. To gain access within the rest of the server please head to <#1312748668646068246> and Fastpass to a Civilian or just verify with bloxlink to become a Civilian here. If you have any questions or inquiries, please do not hesitate to contact a staff member."
+  
+  # Auto-role when user joins (leave empty to disable)
+  auto_role: "1322884240576348161"
+  
+  # Show user avatar in welcome message
+  show_avatar: true
+  
+  # DM welcome message to new members
+  dm_welcome: false
+  
+  # DM welcome message content
+  dm_message: "Welcome to Ishhs Greenville Roleplay™! We're glad to have you here. Please make sure to read our rules and verify to get full access to the server."
+
+# ╔═══════════════════════════════════════════════════════════════════════════════╗
+# ║                        TICKET SYSTEM CONFIGURATION                            ║
+# ╚═══════════════════════════════════════════════════════════════════════════════╝
+tickets:
+  # Enable ticket system
+  enabled: true
+  
+  # Category where ticket channels are created
+  category_id: "1312745388545015889"
+  
+  # Support team role (can view all tickets)
+  support_role: "1312823390834262016"
+  
+  # Ticket channel naming format (use {username} for user's name, {id} for ticket ID)
+  channel_name_format: "ticket-{username}"
+  
+  # Maximum tickets per user
+  max_tickets_per_user: 3
+  
+  # Auto-close tickets after X hours of inactivity (0 = disabled)
+  auto_close_after_hours: 48
+  
+  # Send transcript to user when ticket closes
+  send_transcript: true
+  
+  # Transcript channel (where closed ticket logs are sent)
+  transcript_channel_id: "1312746250616963083"
+  
+  # Ticket categories/types
+  categories:
+    - name: "General Support"
+      emoji: "🎮"
+      description: "General help and support"
+    - name: "Report Issue"
+      emoji: "⚠️"
+      description: "Report a problem or issue"
+    - name: "Question"
+      emoji: "❓"
+      description: "Ask a question"
+    - name: "Other"
+      emoji: "📋"
+      description: "Other inquiries (e.g. Partnerships)"
+  
+  # Ticket open message
+  open_message: "Thank you for opening a ticket! Our support team will be with you shortly. Please describe your issue in detail."
+  
+  # Ticket close confirmation message
+  close_confirmation: "Are you sure you want to close this ticket? This action cannot be undone."
+
+# ╔═══════════════════════════════════════════════════════════════════════════════╗
 # ║                      INFRACTION SYSTEM CONFIGURATION                          ║
 # ╚═══════════════════════════════════════════════════════════════════════════════╝
 
@@ -180,6 +254,18 @@ logging:
   # Log channel modifications
   log_channel_changes: true
   
+  # Log message deletions
+  log_message_deletes: true
+  
+  # Log message edits
+  log_message_edits: true
+  
+  # Log voice channel activity
+  log_voice_activity: true
+  
+  # Log moderation actions (kicks, bans, mutes)
+  log_moderation: true
+  
   # Embed colors for different log types
   colors:
     infraction: 0xFF0000      # Red
@@ -191,6 +277,9 @@ logging:
     antiraid_toggled: 0xFFA500  # Orange
     member_join: 0x00FF00      # Green
     member_leave: 0xFF0000     # Red
+    message_delete: 0xFF0000   # Red
+    message_edit: 0xFFA500     # Orange
+    moderation: 0xFF6B6B       # Light Red
     error: 0xFF0000            # Red
     warning: 0xFFA500          # Orange
     info: 0x0099FF             # Blue
@@ -325,11 +414,50 @@ backup:
   notify_on_auto_backup: true
 
 # ╔═══════════════════════════════════════════════════════════════════════════════╗
+# ║                        MODERATION CONFIGURATION                               ║
+# ╚═══════════════════════════════════════════════════════════════════════════════╝
+moderation:
+  # Enable moderation commands
+  enabled: true
+  
+  # Default mute duration (minutes)
+  default_mute_duration: 60
+  
+  # Maximum mute duration (minutes)
+  max_mute_duration: 10080  # 7 days
+  
+  # Send DM to user when moderated
+  dm_on_action: true
+  
+  # DM messages for different actions
+  dm_messages:
+    kick: "You have been kicked from {server} for: {reason}"
+    ban: "You have been banned from {server} for: {reason}"
+    mute: "You have been muted in {server} for {duration} minutes. Reason: {reason}"
+    warn: "You have received a warning in {server} for: {reason}"
+  
+  # Require reason for moderation actions
+  require_reason: true
+  
+  # Minimum reason length
+  min_reason_length: 5
+  
+  # Appeal information
+  appeal_message: "\n\nIf you believe this action was taken in error, please contact a server administrator."
+
+# ╔═══════════════════════════════════════════════════════════════════════════════╗
 # ║                        COMMAND CONFIGURATION                                  ║
 # ╚═══════════════════════════════════════════════════════════════════════════════╝
 commands:
   # Enable/disable specific commands
   enabled:
+    # Moderation commands
+    kick: true
+    ban: true
+    mute: true
+    unmute: true
+    warn: true
+    
     # Infraction commands
     infraction: true
     staffinfraction: true
@@ -340,6 +468,9 @@ commands:
     bulkinfraction: false
     exportinfractions: true
     editinfraction: true
+    
+    # Ticket commands
+    ticket_panel: true
     
     # Backup commands
     backup: true
@@ -366,6 +497,11 @@ commands:
   
   # Cooldown for commands (seconds) - prevents spam
   cooldown:
+    kick: 3
+    ban: 5
+    mute: 3
+    unmute: 2
+    warn: 3
     infraction: 3
     staffinfraction: 3
     viewinfractions: 2
@@ -375,6 +511,7 @@ commands:
     bulkinfraction: 10
     exportinfractions: 10
     editinfraction: 3
+    ticket_panel: 60
     backup: 60
     restore: 120
     listbackups: 5
@@ -393,6 +530,11 @@ commands:
   
   # Show command responses as ephemeral (only visible to command user)
   ephemeral_responses:
+    kick: false
+    ban: false
+    mute: false
+    unmute: false
+    warn: false
     infraction: false
     staffinfraction: false
     viewinfractions: true
@@ -402,6 +544,7 @@ commands:
     bulkinfraction: false
     exportinfractions: true
     editinfraction: true
+    ticket_panel: true
     backup: true
     restore: true
     listbackups: true
@@ -426,7 +569,7 @@ notifications:
   notification_channel_id: "1312821661182988328"
   
   # Notify when bot starts
-  notify_on_startup: true
+  notify_on_startup: false
   
   # Startup message
   startup_message: "✅ Ishhs Greenville Roleplay bot is now online and ready!"
@@ -491,6 +634,10 @@ advanced:
   # Data file locations
   data_files:
     infractions: "./infractions.json"
+    deleted_messages: "./data/deleted_messages.json"
+    edited_messages: "./data/edited_messages.json"
+    tickets: "./data/tickets.json"
+    moderation: "./data/moderation.json"
     config_backup: "./config_backup.yml"
   
   # Auto-save interval for data files (seconds)
@@ -561,10 +708,16 @@ custom_messages:
   no_early_access: "❌ You do not have access to this early access session. You need one of the required roles."
   cohost_set: "✅ Co-host set to {user} for your next session!"
   invalid_mention: "❌ Please mention a user! Example: `;co @username`"
+  
+  # Ticket messages
+  ticket_created: "✅ Your ticket has been created!"
+  ticket_closed: "🔒 This ticket has been closed."
+  ticket_claimed: "✅ Ticket claimed successfully!"
+  max_tickets_reached: "❌ You have reached the maximum number of open tickets ({max})."
 
 # ╔═══════════════════════════════════════════════════════════════════════════════╗
 # ║                    END OF CONFIGURATION FILE                                  ║
 # ╚═══════════════════════════════════════════════════════════════════════════════╝
-# Configuration file version: 3.0.0
+# Configuration file version: 4.0.0
 # Last updated: 2025-01-25
 # For support, contact the bot administrator

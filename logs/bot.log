@@ -1,2 +1,10 @@
 [2025-11-25T10:24:34.087Z] [COMMAND] Command executed: /startup | {"user":"foxiewolf","userId":"881543314397102131","channel":"•┋➪-session-1-🟢"}
 [2025-11-25T10:26:55.057Z] [COMMAND] Command executed: /startup | {"user":"foxiewolf","userId":"881543314397102131","channel":"•┋➪-session-1-🟢"}
+[2025-11-25T11:41:45.711Z] [COMMAND] Command executed: /ticket-panel | {"user":"foxiewolf","userId":"881543314397102131","channel":"•┋hr-general"}
+[2025-11-25T11:50:10.553Z] [COMMAND] Command executed: /restartbot | {"user":"foxiewolf","userId":"881543314397102131","channel":"•┋➪-session-1-🟢"}
+[2025-11-25T11:50:10.886Z] [WARN] Bot restart initiated | {"user":"foxiewolf","userId":"881543314397102131"}
+[2025-11-25T11:50:11.530Z] [INFO] Data saved before restart
+[2025-11-25T11:50:11.535Z] [INFO] Backup created before restart
+[2025-11-25T11:50:13.538Z] [INFO] Bot restarting now...
+[2025-11-25T11:51:28.546Z] [COMMAND] Command executed: /earlyaccess | {"user":"foxiewolf","userId":"881543314397102131","channel":"•┋➪-session-1-🟢"}
+[2025-11-25T11:52:00.804Z] [COMMAND] Command executed: /release | {"user":"foxiewolf","userId":"881543314397102131","channel":"•┋➪-session-1-🟢"}

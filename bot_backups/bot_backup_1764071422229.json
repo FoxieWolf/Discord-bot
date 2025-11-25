@@ -1,8 +1,8 @@
 {
-  "timestamp": 1764067086175,
+  "timestamp": 1764071422229,
   "infractions": {},
   "config": {
-    "bot_token": "MTQzMDM1OTE3NjQwMzc1MDk1Mg.Gu6A3q.8hSS9qxC-UNBZHZdn9sZ-FIgHLNUyvWzGXO5k0",
+    "bot_token": "MTQ0MTQ2OTQxNDE4MzgwMDg2Mw.GQWd9b.vxsg9ebtZEFmMtAHhHGItQcEoF7gzvojsAAlPo",
     "guild_id": "1312736882265690122",
     "presence": {
       "status": "dnd",
@@ -45,6 +45,49 @@
       },
       "embed_color": "#633c79",
       "footer_text": "Property of Ishhs Greenville Roleplay™"
+    },
+    "welcome": {
+      "enabled": true,
+      "channel_id": "1312743983973142528",
+      "message": "Hello {user}, and welcome to  {server}. We thank you for joining us. To gain access within the rest of the server please head to <#1312748668646068246> and Fastpass to a Civilian or just verify with bloxlink to become a Civilian here. If you have any questions or inquiries, please do not hesitate to contact a staff member.",
+      "auto_role": "1322884240576348161",
+      "show_avatar": true,
+      "dm_welcome": false,
+      "dm_message": "Welcome to Ishhs Greenville Roleplay™! We're glad to have you here. Please make sure to read our rules and verify to get full access to the server."
+    },
+    "tickets": {
+      "enabled": true,
+      "category_id": "1312745388545015889",
+      "support_role": "1312823390834262016",
+      "channel_name_format": "ticket-{username}",
+      "max_tickets_per_user": 3,
+      "auto_close_after_hours": 48,
+      "send_transcript": true,
+      "transcript_channel_id": "1312746250616963083",
+      "categories": [
+        {
+          "name": "General Support",
+          "emoji": "🎮",
+          "description": "General help and support"
+        },
+        {
+          "name": "Report Issue",
+          "emoji": "⚠️",
+          "description": "Report a problem or issue"
+        },
+        {
+          "name": "Question",
+          "emoji": "❓",
+          "description": "Ask a question"
+        },
+        {
+          "name": "Other",
+          "emoji": "📋",
+          "description": "Other inquiries (e.g. Partnerships)"
+        }
+      ],
+      "open_message": "Thank you for opening a ticket! Our support team will be with you shortly. Please describe your issue in detail.",
+      "close_confirmation": "Are you sure you want to close this ticket? This action cannot be undone."
     },
     "infraction_types": [
       {
@@ -93,6 +136,10 @@
       "log_member_events": true,
       "log_role_changes": true,
       "log_channel_changes": true,
+      "log_message_deletes": true,
+      "log_message_edits": true,
+      "log_voice_activity": true,
+      "log_moderation": true,
       "colors": {
         "infraction": 16711680,
         "staff_infraction": 9109504,
@@ -103,6 +150,9 @@
         "antiraid_toggled": 16753920,
         "member_join": 65280,
         "member_leave": 16711680,
+        "message_delete": 16711680,
+        "message_edit": 16753920,
+        "moderation": 16739179,
         "error": 16711680,
         "warning": 16753920,
         "info": 39423
@@ -174,8 +224,28 @@
       "notification_channel_id": "1312821661182988328",
       "notify_on_auto_backup": true
     },
+    "moderation": {
+      "enabled": true,
+      "default_mute_duration": 60,
+      "max_mute_duration": 10080,
+      "dm_on_action": true,
+      "dm_messages": {
+        "kick": "You have been kicked from {server} for: {reason}",
+        "ban": "You have been banned from {server} for: {reason}",
+        "mute": "You have been muted in {server} for {duration} minutes. Reason: {reason}",
+        "warn": "You have received a warning in {server} for: {reason}"
+      },
+      "require_reason": true,
+      "min_reason_length": 5,
+      "appeal_message": "\n\nIf you believe this action was taken in error, please contact a server administrator."
+    },
     "commands": {
       "enabled": {
+        "kick": true,
+        "ban": true,
+        "mute": true,
+        "unmute": true,
+        "warn": true,
         "infraction": true,
         "staffinfraction": true,
         "viewinfractions": true,
@@ -185,6 +255,7 @@
         "bulkinfraction": false,
         "exportinfractions": true,
         "editinfraction": true,
+        "ticket_panel": true,
         "backup": true,
         "restore": true,
         "listbackups": true,
@@ -202,6 +273,11 @@
         "end": true
       },
       "cooldown": {
+        "kick": 3,
+        "ban": 5,
+        "mute": 3,
+        "unmute": 2,
+        "warn": 3,
         "infraction": 3,
         "staffinfraction": 3,
         "viewinfractions": 2,
@@ -211,6 +287,7 @@
         "bulkinfraction": 10,
         "exportinfractions": 10,
         "editinfraction": 3,
+        "ticket_panel": 60,
         "backup": 60,
         "restore": 120,
         "listbackups": 5,
@@ -228,6 +305,11 @@
         "end": 5
       },
       "ephemeral_responses": {
+        "kick": false,
+        "ban": false,
+        "mute": false,
+        "unmute": false,
+        "warn": false,
         "infraction": false,
         "staffinfraction": false,
         "viewinfractions": true,
@@ -237,6 +319,7 @@
         "bulkinfraction": false,
         "exportinfractions": true,
         "editinfraction": true,
+        "ticket_panel": true,
         "backup": true,
         "restore": true,
         "listbackups": true,
@@ -256,7 +339,7 @@
     },
     "notifications": {
       "notification_channel_id": "1312821661182988328",
-      "notify_on_startup": true,
+      "notify_on_startup": false,
       "startup_message": "✅ Ishhs Greenville Roleplay bot is now online and ready!",
       "notify_on_shutdown": false,
       "shutdown_message": "🔴 Ishhs Greenville Roleplay bot is shutting down...",
@@ -286,6 +369,10 @@
       "debug_mode": true,
       "data_files": {
         "infractions": "./infractions.json",
+        "deleted_messages": "./data/deleted_messages.json",
+        "edited_messages": "./data/edited_messages.json",
+        "tickets": "./data/tickets.json",
+        "moderation": "./data/moderation.json",
         "config_backup": "./config_backup.yml"
       },
       "auto_save_interval": 300,
@@ -315,7 +402,11 @@
       "bot_restarting": "🔄 Bot is restarting... Please wait.",
       "no_early_access": "❌ You do not have access to this early access session. You need one of the required roles.",
       "cohost_set": "✅ Co-host set to {user} for your next session!",
-      "invalid_mention": "❌ Please mention a user! Example: `;co @username`"
+      "invalid_mention": "❌ Please mention a user! Example: `;co @username`",
+      "ticket_created": "✅ Your ticket has been created!",
+      "ticket_closed": "🔒 This ticket has been closed.",
+      "ticket_claimed": "✅ Ticket claimed successfully!",
+      "max_tickets_reached": "❌ You have reached the maximum number of open tickets ({max})."
     }
   }
 }
