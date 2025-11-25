@@ -1,5 +1,5 @@
 # ═══════════════════════════════════════════════════════════════════════════════
-#                    CENTRAL GREENVILLE ROLEPLAY BOT CONFIGURATION
+#                    Ishhs GREENVILLE ROLEPLAY BOT CONFIGURATION
 # ═══════════════════════════════════════════════════════════════════════════════
 # This file contains ALL bot settings and configurations.
 # Edit values carefully and restart the bot after making changes.
@@ -18,13 +18,13 @@ guild_id: "1312736882265690122"
 # Bot presence settings
 presence:
   # Status: "online", "idle", "dnd", "invisible"
-  status: "online"
+  status: "dnd"
   
   # Activity type: "PLAYING", "STREAMING", "LISTENING", "WATCHING", "COMPETING"
   activity_type: "WATCHING"
   
   # Activity text (what the bot is doing)
-  activity_text: "Central Greenville Roleplay"
+  activity_text: "Ishhs Greenville Roleplay"
   
   # Streaming URL (only used if activity_type is "STREAMING")
   streaming_url: "https://twitch.tv/your_channel"
@@ -53,8 +53,8 @@ roles:
   
   # Early access roles (can join early access sessions)
   early_access_roles:
-    - "EARLY_ACCESS_ROLE_ID_1"  # LEO role
-    - "EARLY_ACCESS_ROLE_ID_2"  # Staff role or Server Booster
+    - "1320404523621154849"  # EA role
+    - "1435031133896183908"  # Staff role or Server Booster
 
 # ╔═══════════════════════════════════════════════════════════════════════════════╗
 # ║                           OWNER CONFIGURATION                                 ║
@@ -130,7 +130,7 @@ infraction_messages:
   civilian: "You have received an infraction for violating server rules. Please review our community guidelines and ensure this behavior does not continue. Repeated violations may result in further disciplinary action."
   
   # Message shown for staff infractions
-  staff: "You have received a staff infraction for violating staff conduct policies. As a staff member of Central Greenville Roleplay, you are held to higher standards of behavior and professionalism. This infraction cannot be removed and will remain permanently on your record."
+  staff: "You have received a staff infraction for violating staff conduct policies. As a staff member of Ishhs Greenville Roleplay, you are held to higher standards of behavior and professionalism. This infraction cannot be removed and will remain permanently on your record."
 
 # Infraction Embed Settings
 infraction_embed:
@@ -138,7 +138,7 @@ infraction_embed:
   footer_line_1: "If you think this infraction was a mistake please open a ticket."
   
   # Footer text line 2
-  footer_line_2: "Property of Central Greenville Roleplay."
+  footer_line_2: "Property of Ishhs Greenville Roleplay."
   
   # Show thumbnail in infraction embeds
   show_thumbnail: true
@@ -335,7 +335,7 @@ commands:
     staffinfraction: true
     viewinfractions: true
     removeinfraction: true
-    clearinfractions: true
+    clearinfractions: false
     infractionstats: true
     bulkinfraction: false
     exportinfractions: true
@@ -426,16 +426,16 @@ notifications:
   notification_channel_id: "1312821661182988328"
   
   # Notify when bot starts
-  notify_on_startup: false
+  notify_on_startup: true
   
   # Startup message
-  startup_message: "✅ Central Greenville Roleplay bot is now online and ready!"
+  startup_message: "✅ Ishhs Greenville Roleplay bot is now online and ready!"
   
   # Notify when bot shuts down
   notify_on_shutdown: false
   
   # Shutdown message
-  shutdown_message: "🔴 Central Greenville Roleplay bot is shutting down..."
+  shutdown_message: "🔴 Ishhs Greenville Roleplay bot is shutting down..."
   
   # Notify on errors
   notify_on_error: true

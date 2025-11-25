@@ -1,13 +1,13 @@
 {
-  "timestamp": 1764064691510,
+  "timestamp": 1764066804744,
   "infractions": {},
   "config": {
     "bot_token": "MTQzMDM1OTE3NjQwMzc1MDk1Mg.Gu6A3q.8hSS9qxC-UNBZHZdn9sZ-FIgHLNUyvWzGXO5k0",
     "guild_id": "1312736882265690122",
     "presence": {
-      "status": "online",
+      "status": "dnd",
       "activity_type": "WATCHING",
-      "activity_text": "Central Greenville Roleplay",
+      "activity_text": "Ishhs Greenville Roleplay",
       "streaming_url": "https://twitch.tv/your_channel"
     },
     "roles": {
@@ -18,8 +18,8 @@
       "admin_role": "1312822093385044018",
       "session_host_role": "1312826964368953416",
       "early_access_roles": [
-        "EARLY_ACCESS_ROLE_ID_1",
-        "EARLY_ACCESS_ROLE_ID_2"
+        "1320404523621154849",
+        "1435031133896183908"
       ]
     },
     "owners": [
@@ -180,7 +180,7 @@
         "staffinfraction": true,
         "viewinfractions": true,
         "removeinfraction": true,
-        "clearinfractions": true,
+        "clearinfractions": false,
         "infractionstats": true,
         "bulkinfraction": false,
         "exportinfractions": true,
@@ -256,7 +256,7 @@
     },
     "notifications": {
       "notification_channel_id": "1312821661182988328",
-      "notify_on_startup": false,
+      "notify_on_startup": true,
       "startup_message": "✅ Central Greenville Roleplay bot is now online and ready!",
       "notify_on_shutdown": false,
       "shutdown_message": "🔴 Central Greenville Roleplay bot is shutting down...",

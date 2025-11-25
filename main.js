@@ -1,10 +1,28 @@
-const { Client, GatewayIntentBits, EmbedBuilder, PermissionFlagsBits, SlashCommandBuilder, AttachmentBuilder, ChannelType, ActivityType, REST, Routes } = require('discord.js');
+const {
+    Client,
+    GatewayIntentBits,
+    EmbedBuilder,
+    ActionRowBuilder,
+    ButtonBuilder,
+    ButtonStyle,
+    ModalBuilder,
+    TextInputBuilder,
+    TextInputStyle,
+    MessageFlags,
+    PermissionFlagsBits,
+    SlashCommandBuilder,
+    AttachmentBuilder,
+    ChannelType,
+    ActivityType,
+    REST,
+    Routes
+} = require('discord.js');
 const fs = require('fs');
 const yaml = require('js-yaml');
 const path = require('path');
 
 // ═══════════════════════════════════════════════════════════════════════════════
-//                    CENTRAL GREENVILLE ROLEPLAY BOT v3.5
+//                    Ishhs GREENVILLE ROLEPLAY BOT v3.5
 // ═══════════════════════════════════════════════════════════════════════════════
 
 // Load configuration
@@ -107,7 +125,7 @@ function createDefaultConfig() {
         presence: {
             status: "online",
             activity_type: "WATCHING",
-            activity_text: "Central Greenville Roleplay",
+            activity_text: "Ishhs Greenville Roleplay",
             streaming_url: "https://twitch.tv/your_channel"
         },
         roles: {
@@ -146,11 +164,11 @@ function createDefaultConfig() {
         ],
         infraction_messages: {
             civilian: "You have received an infraction for violating server rules. Please review our community guidelines and ensure this behavior does not continue. Repeated violations may result in further disciplinary action.",
-            staff: "You have received a staff infraction for violating staff conduct policies. As a staff member of Central Greenville Roleplay, you are held to higher standards of behavior and professionalism. This infraction cannot be removed and will remain permanently on your record."
+            staff: "You have received a staff infraction for violating staff conduct policies. As a staff member of Ishhs Greenville Roleplay, you are held to higher standards of behavior and professionalism. This infraction cannot be removed and will remain permanently on your record."
         },
         infraction_embed: {
             footer_line_1: "If you think this infraction was a mistake please open a ticket.",
-            footer_line_2: "Property of Central Greenville Roleplay.",
+            footer_line_2: "Property of Ishhs Greenville Roleplay.",
             show_thumbnail: true,
             thumbnail_url: "",
             include_timestamp: true,
@@ -249,7 +267,7 @@ function createDefaultConfig() {
         notifications: {
             notification_channel_id: "NOTIFICATION_CHANNEL_ID_HERE",
             notify_on_startup: true,
-            startup_message: "✅ Central Greenville Roleplay bot is online!",
+            startup_message: "✅ Ishhs Greenville Roleplay bot is online!",
             notify_on_shutdown: true,
             shutdown_message: "🔴 Bot shutting down...",
             notify_on_error: true
@@ -341,7 +359,7 @@ client.once('ready', async () => {
         client.user.setPresence({
             status: config.presence.status || 'online',
             activities: [{
-                name: config.presence.activity_text || 'Central Greenville Roleplay',
+                name: config.presence.activity_text || 'Ishhs Greenville Roleplay',
                 type: activityTypes[config.presence.activity_type] || ActivityType.Watching,
                 url: config.presence.activity_type === 'STREAMING' ? config.presence.streaming_url : undefined
             }]
@@ -1970,39 +1988,19 @@ process.on('SIGINT', async () => {
     process.exit(0);
 });
 
-const PREFIX = ';';
-const ALLOWED_ROLE_ID = '1312826964368953416';
+// Extract config values
+const PREFIX = config.session_management.prefix;
+const ALLOWED_ROLE_ID = config.roles.session_host_role;
+const EARLY_ACCESS_ROLES = config.roles.early_access_roles;
+const SERVER_NAME = config.session_management.server_name;
+const CHANNELS = config.session_management.channels;
+const IMAGES = config.session_management.images;
+const EMBED_COLOR = config.session_management.embed_color;
+const FOOTER_TEXT = config.session_management.footer_text;
 
-// Store co-hosts
+// Store co-hosts and early access links
 const coHosts = new Map();
-
-// Helper function to convert username to mention
-async function getUserMention(guild, input) {
-    if (!input) return 'N/A';
-    
-    // If already a mention, return as is
-    if (input.startsWith('<@') && input.endsWith('>')) {
-        return input;
-    }
-    
-    // Try to find user by username or display name
-    try {
-        const members = await guild.members.fetch();
-        const member = members.find(m => 
-            m.user.username.toLowerCase() === input.toLowerCase() ||
-            m.user.tag.toLowerCase() === input.toLowerCase() ||
-            m.displayName.toLowerCase() === input.toLowerCase()
-        );
-        
-        if (member) {
-            return `<@${member.id}>`;
-        }
-    } catch (error) {
-        console.error('Error finding user:', error);
-    }
-    
-    return input;
-}
+const earlyAccessLinks = new Map();
 
 client.once('ready', async () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -2125,6 +2123,13 @@ client.on('interactionCreate', async (interaction) => {
                 .setCustomId('earlyaccess-modal')
                 .setTitle('Early Access Announcement');
 
+            const serverLinkInput = new TextInputBuilder()
+                .setCustomId('serverLink')
+                .setLabel('Early Access Server Link')
+                .setStyle(TextInputStyle.Short)
+                .setPlaceholder('https://...')
+                .setRequired(true);
+
             const waitTimeInput = new TextInputBuilder()
                 .setCustomId('waitTime')
                 .setLabel('Time until Public Release')
@@ -2132,7 +2137,10 @@ client.on('interactionCreate', async (interaction) => {
                 .setPlaceholder('e.g., 5-10 Minutes')
                 .setRequired(true);
 
-            modal.addComponents(new ActionRowBuilder().addComponents(waitTimeInput));
+            modal.addComponents(
+                new ActionRowBuilder().addComponents(serverLinkInput),
+                new ActionRowBuilder().addComponents(waitTimeInput)
+            );
             await interaction.showModal(modal);
         }
 
@@ -2259,20 +2267,20 @@ client.on('interactionCreate', async (interaction) => {
 
             const embed = new EmbedBuilder()
                 .setAuthor({ 
-                    name: 'Ishhs Greenville Roleplay™',
+                    name: SERVER_NAME,
                     iconURL: guild.iconURL()
                 })
-                .setTitle('Ishhs Greenville Roleplay™ Startup')
-                .setDescription(`${host} is currently **attempting to Host** a **Ishhs Greenville Roleplay™ Session**. **Before** you join the **Roleplay**, please **review** our <#1312744272830791680> of the **Server** and all the **Information** that are **Listed** down Below. For this **Session** to **Start** we need to get **5+ Reactions** on this Message.`)
-                .setColor('#633c79')
+                .setTitle(`${SERVER_NAME} Startup`)
+                .setDescription(`${host} is currently **attempting to Host** a **${SERVER_NAME} Session**. **Before** you join the **Roleplay**, please **review** our <#${CHANNELS.rules}> of the **Server** and all the **Information** that are **Listed** down Below. For this **Session** to **Start** we need to get **5+ Reactions** on this Message.`)
+                .setColor(EMBED_COLOR)
                 .setThumbnail(guild.iconURL())
                 .addFields(
-                    { name: '• ', value: '**Read** over our <#1312744328531021888> to **see** the **Roleplay Information** of the **Server**.', inline: false },
-                    { name: '• ', value: '**Ensure** you have **all** your Vehicles **registered** in the <#1312788701067350116> so you can **Provide** more **Tickets**.', inline: false },
+                    { name: '• ', value: `**Read** over our <#${CHANNELS.roleplay_info}> to **see** the **Roleplay Information** of the **Server**.`, inline: false },
+                    { name: '• ', value: `**Ensure** you have **all** your Vehicles **registered** in the <#${CHANNELS.vehicle_registration}> so you can **Provide** more **Tickets**.`, inline: false },
                     { name: '• ', value: `**Make sure** your **Roblox Profile Settings** are set to **"Everyone"** so you can **attend the Roleplay** of ${host}`, inline: false }
                 )
-                .setImage('https://cdn.discordapp.com/attachments/1163575789787287652/1441790383163183246/00085C3C-0F6B-4EEA-AED1-5915317CD9A1.jpg?ex=6923136e&is=6921c1ee&hm=a830e095f23fc752b998372437269fbd277dc9017db573e6f3282753a8cb4be2&')
-                .setFooter({ text: 'Property of Ishhs Greenville Roleplay™' })
+                .setImage(IMAGES.startup)
+                .setFooter({ text: FOOTER_TEXT })
                 .setTimestamp();
 
             await interaction.editReply({ embeds: [embed] });
@@ -2284,15 +2292,15 @@ client.on('interactionCreate', async (interaction) => {
 
             const embed = new EmbedBuilder()
                 .setAuthor({ 
-                    name: 'Ishhs Greenville Roleplay™',
+                    name: SERVER_NAME,
                     iconURL: guild.iconURL()
                 })
-                .setTitle('Ishhs Greenville Roleplay™ Session Setup')
+                .setTitle(`${SERVER_NAME} Session Setup`)
                 .setDescription(`${host} is now **Setting up his Session**, this can take up to **5-10 Minutes**. When the **Host is Ready** he will **Release** the **Early Access to his Session**. If you have any **Questions** regard to the **Tickets**.`)
-                .setColor('#633c79')
+                .setColor(EMBED_COLOR)
                 .setThumbnail(guild.iconURL())
-                .setImage('https://cdn.discordapp.com/attachments/1163575789787287652/1441790328175853609/040ADF83-0F24-4414-A22F-47E24FBBC8D9.jpg?ex=69231361&is=6921c1e1&hm=afcf06eba6e2b714b27b07fc2240d5c91f6e32efabfd0c407cc37ba1a5802a47&')
-                .setFooter({ text: 'Property of Ishhs Greenville Roleplay™' })
+                .setImage(IMAGES.setup)
+                .setFooter({ text: FOOTER_TEXT })
                 .setTimestamp();
 
             await interaction.editReply({ embeds: [embed] });
@@ -2302,26 +2310,39 @@ client.on('interactionCreate', async (interaction) => {
         else if (interaction.customId === 'earlyaccess-modal') {
             await interaction.deferReply();
             
+            const serverLink = interaction.fields.getTextInputValue('serverLink');
             const waitTime = interaction.fields.getTextInputValue('waitTime');
+
+            // Store early access link for button verification
+            earlyAccessLinks.set(interaction.user.id, serverLink);
 
             const embed = new EmbedBuilder()
                 .setAuthor({ 
-                    name: 'Ishhs Greenville Roleplay™',
+                    name: SERVER_NAME,
                     iconURL: guild.iconURL()
                 })
-                .setTitle('Ishhs Greenville Roleplay™ Early Access')
-                .setDescription(`${host} has now **Released** the **Early Access** to his **Ishhs Greenville Roleplay™ Session**. If you have the **Ealry Access role** or are a **Server Booster** you can now **join** the Session. The **Public Release** will be in **${waitTime}**.`)
-                .setColor('#633c79')
+                .setTitle(`${SERVER_NAME} Early Access`)
+                .setDescription(`${host} has now **Released** the **Early Access** to his **${SERVER_NAME} Session**. If you have the **Early Access role** or are a **Server Booster** you can now **join** the Session. The **Public Release** will be in **${waitTime}**.`)
+                .setColor(EMBED_COLOR)
                 .setThumbnail(guild.iconURL())
                 .addFields(
                     { name: '• Early Access Users:', value: 'LEO & STAFF & Server Boosters', inline: false },
                     { name: '• Public Release:', value: waitTime, inline: false }
                 )
-                .setImage('https://cdn.discordapp.com/attachments/1163575789787287652/1441789775630831677/2B67C670-571C-48A6-8CBC-82A30E2EAB18.jpg?ex=692312dd&is=6921c15d&hm=8fe025a5e1bb28733bf03e88d39ff4d96ab09c40e71a5071b8b0a387dded0e1f&')
-                .setFooter({ text: 'Property of Ishhs Greenville Roleplay™' })
+                .setImage(IMAGES.earlyaccess)
+                .setFooter({ text: FOOTER_TEXT })
                 .setTimestamp();
 
-            await interaction.editReply({ embeds: [embed] });
+            const row = new ActionRowBuilder()
+                .addComponents(
+                    new ButtonBuilder()
+                        .setCustomId(`early-access-join:${interaction.user.id}`)
+                        .setLabel('Early Access Join')
+                        .setStyle(ButtonStyle.Primary)
+                        .setEmoji('🔗')
+                );
+
+            await interaction.editReply({ embeds: [embed], components: [row] });
         }
 
         // RELEASE MODAL
@@ -2340,31 +2361,31 @@ client.on('interactionCreate', async (interaction) => {
             // Parse speeds
             const speedParts = speeds.split('|').map(s => s.trim());
             const regSpeed = speedParts[0] || 'N/A';
-            const frpSpeed = speedParts[1] || 'N/A';
-            const pullSpeed = speedParts[2] || 'N/A';
+            const pullSpeed = speedParts[1] || 'N/A';
+            const frpSpeed = speedParts[2] || 'N/A';
 
             const embed = new EmbedBuilder()
                 .setAuthor({ 
-                    name: 'Ishhs Greenville Roleplay™',
+                    name: SERVER_NAME,
                     iconURL: guild.iconURL()
                 })
-                .setTitle('Ishhs Greenville Roleplay™ Release')
-                .setDescription(`${host} has now **Released** his **Ishhs Greenville Roleplay™ Session**, Before you join please review the Rules listed in <#1312744272830791680> and the Following Rules listed down below.\n\nAny **Kind of FRP** in the **Session** will be **Moderated and Punished**.`)
-                .setColor('#633c79')
+                .setTitle(`${SERVER_NAME} Release`)
+                .setDescription(`${host} has now **Released** his **${SERVER_NAME} Session**, Before you join please review the Rules listed in <#${CHANNELS.rules}> and the Following Rules listed down below.\n\nAny **Kind of FRP** in the **Session** will be **Moderated and Punished**.`)
+                .setColor(EMBED_COLOR)
                 .setThumbnail(guild.iconURL())
                 .addFields(
                     { name: '• Session Host:', value: host, inline: true },
                     { name: '• Session Co-Host:', value: cohost, inline: true },
                     { name: '• Peacetime Status:', value: peacetime, inline: true },
                     { name: '• Regular Speedlimit:', value: regSpeed, inline: true },
-                    { name: '• Pullover  Speedlimit:', value: frpSpeed, inline: true },
-                    { name: '• FRP Speeds:', value: pullSpeed, inline: true },
+                    { name: '• Pullover Speedlimit:', value: pullSpeed, inline: true },
+                    { name: '• FRP Speeds:', value: frpSpeed, inline: true },
                     { name: '• House Claiming:', value: houseClaim, inline: true },
                     { name: '• Roleplay Type:', value: rpType, inline: true },
                     { name: '• Additional Notes:', value: 'N/A', inline: true }
                 )
-                .setImage('https://cdn.discordapp.com/attachments/1163575789787287652/1441791302650826782/12043EA4-96FE-4B59-B3EC-44AB8C3611C6.jpg?ex=69231449&is=6921c2c9&hm=a73c144e1769eeb789459f3183a9f83f8fbc1a4296804bf6169ad3f9c205c81e&')
-                .setFooter({ text: 'Property of Ishhs Greenville Roleplay™' })
+                .setImage(IMAGES.release)
+                .setFooter({ text: FOOTER_TEXT })
                 .setTimestamp();
 
             const row = new ActionRowBuilder()
@@ -2376,8 +2397,9 @@ client.on('interactionCreate', async (interaction) => {
                         .setEmoji('🔗')
                 );
 
-            // Clear co-host after use
+            // Clear co-host and early access link after use
             coHosts.delete(interaction.user.id);
+            earlyAccessLinks.delete(interaction.user.id);
 
             await interaction.editReply({ embeds: [embed], components: [row] });
         }
@@ -2390,19 +2412,20 @@ client.on('interactionCreate', async (interaction) => {
 
             const embed = new EmbedBuilder()
                 .setAuthor({ 
-                    name: 'Ishhs Greenville Roleplay™',
+                    name: SERVER_NAME,
                     iconURL: guild.iconURL()
                 })
-                .setTitle('Ishhs Greenville Roleplay™ Session Cancel')
-                .setDescription(`${host} has **Canceled** his **Ishhs Greenville Roleplay™ Session**, you may **wait for another Session** to be **hosted** you can find the **Reason** why the Host has **canceled his Session**.\n\n**• Reason:** ${reason}\n\nIf you have **any Questions** regard to the **Tickets** !`)
-                .setColor('#633c79')
+                .setTitle(`${SERVER_NAME} Session Cancel`)
+                .setDescription(`${host} has **Canceled** his **${SERVER_NAME} Session**, you may **wait for another Session** to be **hosted** you can find the **Reason** why the Host has **canceled his Session**.\n\n**• Reason:** ${reason}\n\nIf you have **any Questions** regard to the **Tickets** !`)
+                .setColor(EMBED_COLOR)
                 .setThumbnail(guild.iconURL())
-                .setImage('https://cdn.discordapp.com/attachments/1163575789787287652/1441790642480222229/C763A555-7CE3-40FD-8916-A07B4DAA4625.jpg?ex=692313ac&is=6921c22c&hm=e4a60b0403cf1bf7cda77a9f5b06a76ca8b0f757931d065059036cf47abd67d8&')
-                .setFooter({ text: 'Ishhs  Greenville Roleplay™' })
+                .setImage(IMAGES.cancel)
+                .setFooter({ text: SERVER_NAME })
                 .setTimestamp();
 
-            // Clear co-host if set
+            // Clear co-host and early access link if set
             coHosts.delete(interaction.user.id);
+            earlyAccessLinks.delete(interaction.user.id);
 
             await interaction.editReply({ embeds: [embed] });
         }
@@ -2422,12 +2445,12 @@ client.on('interactionCreate', async (interaction) => {
 
             const embed = new EmbedBuilder()
                 .setAuthor({ 
-                    name: 'Ishhs Greenville Roleplay™',
+                    name: SERVER_NAME,
                     iconURL: guild.iconURL()
                 })
-                .setTitle('Ishhs Greenville Roleplay™ Session End')
-                .setDescription(`${host} has now **Ended** their **Ishhs Greenville Roleplay™ Session**, down **below** you find the Length and the Rate of ${host} his **Session**.`)
-                .setColor('#633c79')
+                .setTitle(`${SERVER_NAME} Session End`)
+                .setDescription(`${host} has now **Ended** their **${SERVER_NAME} Session**, down **below** you find the Length and the Rate of ${host} his **Session**.`)
+                .setColor(EMBED_COLOR)
                 .setThumbnail(guild.iconURL())
                 .addFields(
                     { name: '• Session Host:', value: host, inline: false },
@@ -2436,15 +2459,16 @@ client.on('interactionCreate', async (interaction) => {
                     { name: '• Session Rating:', value: rating + ' ⭐', inline: false },
                     { name: '• Additional Notes:', value: notes, inline: false }
                 )
-                .setImage('https://cdn.discordapp.com/attachments/1163575789787287652/1441790547202150480/A4A4C429-ABDF-462E-B64E-7AF66B275ACA.jpg?ex=69231395&is=6921c215&hm=5d5762651c620fda12df4fcaca2e8a92dd1d301705fb34b8a823f9b9314a91e2&')
-                .setFooter({ text: 'Property of Ishhs Greenville Roleplay™' })
+                .setImage(IMAGES.end)
+                .setFooter({ text: FOOTER_TEXT })
                 .setTimestamp();
 
-            // Clear co-host if set
+            // Clear co-host and early access link if set
             coHosts.delete(interaction.user.id);
+            earlyAccessLinks.delete(interaction.user.id);
 
             await interaction.editReply({ 
-                content: `Thank you ${host} for **Hosting a Session** on **Ishhs Greenville Roleplay™**`,
+                content: `Thank you ${host} for **Hosting a Session** on **${SERVER_NAME}**`,
                 embeds: [embed] 
             });
         }
@@ -2462,4 +2486,39 @@ client.on('interactionCreate', async (interaction) => {
     }
 });
 
-client.login(config.bot_token);
+// Handle button interactions for early access
+client.on('interactionCreate', async (interaction) => {
+    if (!interaction.isButton()) return;
+
+    if (interaction.customId.startsWith('early-access-join:')) {
+        const hostId = interaction.customId.split(':')[1];
+        const serverLink = earlyAccessLinks.get(hostId);
+
+        if (!serverLink) {
+            return interaction.reply({
+                content: '❌ Early access link is no longer available.',
+                flags: MessageFlags.Ephemeral
+            });
+        }
+
+        // Check if user has early access role
+        const hasEarlyAccess = EARLY_ACCESS_ROLES.some(roleId => 
+            interaction.member.roles.cache.has(roleId)
+        );
+
+        if (!hasEarlyAccess) {
+            return interaction.reply({
+                content: '❌ You do not have access to this early access session. You need one of the required roles (LEO, STAFF, or Server Booster).',
+                flags: MessageFlags.Ephemeral
+            });
+        }
+
+        // Send link as ephemeral message
+        await interaction.reply({
+            content: `🔗 **Early Access Link:** ${serverLink}`,
+            flags: MessageFlags.Ephemeral
+        });
+    }
+});
+
+client.login(config.bot_token)
