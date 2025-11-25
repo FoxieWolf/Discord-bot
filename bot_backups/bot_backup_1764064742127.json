@@ -1,0 +1,321 @@
+{
+  "timestamp": 1764064742127,
+  "infractions": {},
+  "config": {
+    "bot_token": "MTQzMDM1OTE3NjQwMzc1MDk1Mg.Gu6A3q.8hSS9qxC-UNBZHZdn9sZ-FIgHLNUyvWzGXO5k0",
+    "guild_id": "1312736882265690122",
+    "presence": {
+      "status": "online",
+      "activity_type": "WATCHING",
+      "activity_text": "Central Greenville Roleplay",
+      "streaming_url": "https://twitch.tv/your_channel"
+    },
+    "roles": {
+      "infraction_permission": "1433566443441754142",
+      "staff_infraction_permission": "1312822093385044018",
+      "staff_role": "1312823390834262016",
+      "moderator_role": "1312823390834262016",
+      "admin_role": "1312822093385044018",
+      "session_host_role": "1312826964368953416",
+      "early_access_roles": [
+        "EARLY_ACCESS_ROLE_ID_1",
+        "EARLY_ACCESS_ROLE_ID_2"
+      ]
+    },
+    "owners": [
+      "881543314397102131",
+      "935525435540906004",
+      "981245423534616669"
+    ],
+    "session_management": {
+      "prefix": ";",
+      "server_name": "Ishhs Greenville Roleplay™",
+      "channels": {
+        "rules": "1312744272830791680",
+        "roleplay_info": "1312744328531021888",
+        "vehicle_registration": "1312788701067350116"
+      },
+      "images": {
+        "startup": "https://cdn.discordapp.com/attachments/1163575789787287652/1441790383163183246/00085C3C-0F6B-4EEA-AED1-5915317CD9A1.jpg?ex=6923136e&is=6921c1ee&hm=a830e095f23fc752b998372437269fbd277dc9017db573e6f3282753a8cb4be2&",
+        "setup": "https://cdn.discordapp.com/attachments/1163575789787287652/1441790328175853609/040ADF83-0F24-4414-A22F-47E24FBBC8D9.jpg?ex=69231361&is=6921c1e1&hm=afcf06eba6e2b714b27b07fc2240d5c91f6e32efabfd0c407cc37ba1a5802a47&",
+        "earlyaccess": "https://cdn.discordapp.com/attachments/1163575789787287652/1441789775630831677/2B67C670-571C-48A6-8CBC-82A30E2EAB18.jpg?ex=692312dd&is=6921c15d&hm=8fe025a5e1bb28733bf03e88d39ff4d96ab09c40e71a5071b8b0a387dded0e1f&",
+        "release": "https://cdn.discordapp.com/attachments/1163575789787287652/1441791302650826782/12043EA4-96FE-4B59-B3EC-44AB8C3611C6.jpg?ex=69231449&is=6921c2c9&hm=a73c144e1769eeb789459f3183a9f83f8fbc1a4296804bf6169ad3f9c205c81e&",
+        "cancel": "https://cdn.discordapp.com/attachments/1163575789787287652/1441790642480222229/C763A555-7CE3-40FD-8916-A07B4DAA4625.jpg?ex=692313ac&is=6921c22c&hm=e4a60b0403cf1bf7cda77a9f5b06a76ca8b0f757931d065059036cf47abd67d8&",
+        "end": "https://cdn.discordapp.com/attachments/1163575789787287652/1441790547202150480/A4A4C429-ABDF-462E-B64E-7AF66B275ACA.jpg?ex=69231395&is=6921c215&hm=5d5762651c620fda12df4fcaca2e8a92dd1d301705fb34b8a823f9b9314a91e2&"
+      },
+      "embed_color": "#633c79",
+      "footer_text": "Property of Ishhs Greenville Roleplay™"
+    },
+    "infraction_types": [
+      {
+        "name": "Infraction 1",
+        "display_name": "Infraction 1",
+        "role_id": "1320404733227175967",
+        "color": 16776960,
+        "emoji": "⚠️",
+        "description": "Minor violation - First offense"
+      },
+      {
+        "name": "Infraction 2",
+        "display_name": "Infraction 2",
+        "role_id": "1320404785324752998",
+        "color": 16753920,
+        "emoji": "⛔",
+        "description": "Moderate violation - Serious offense"
+      },
+      {
+        "name": "Infraction 3",
+        "display_name": "Infraction 3",
+        "role_id": "1320404838055678033",
+        "color": 16711680,
+        "emoji": "🔨",
+        "description": "Major violation - Severe offense"
+      }
+    ],
+    "infraction_messages": {
+      "civilian": "You have received an infraction for violating server rules. Please review our community guidelines and ensure this behavior does not continue. Repeated violations may result in further disciplinary action.",
+      "staff": "You have received a staff infraction for violating staff conduct policies. As a staff member of Central Greenville Roleplay, you are held to higher standards of behavior and professionalism. This infraction cannot be removed and will remain permanently on your record."
+    },
+    "infraction_embed": {
+      "footer_line_1": "If you think this infraction was a mistake please open a ticket.",
+      "footer_line_2": "Property of Central Greenville Roleplay.",
+      "show_thumbnail": true,
+      "thumbnail_url": "",
+      "include_timestamp": true,
+      "send_dm": true,
+      "dm_failed_message": "Could not DM user - they may have DMs disabled."
+    },
+    "logging": {
+      "channel_id": "1312821661182988328",
+      "channel_name": "bot-logs",
+      "monitor_interval": 5,
+      "detailed_logs": true,
+      "log_member_events": true,
+      "log_role_changes": true,
+      "log_channel_changes": true,
+      "colors": {
+        "infraction": 16711680,
+        "staff_infraction": 9109504,
+        "infraction_removed": 65280,
+        "backup_created": 65280,
+        "backup_restored": 39423,
+        "antiraid_triggered": 16711680,
+        "antiraid_toggled": 16753920,
+        "member_join": 65280,
+        "member_leave": 16711680,
+        "error": 16711680,
+        "warning": 16753920,
+        "info": 39423
+      },
+      "terminal_logging": {
+        "enabled": true,
+        "log_commands": true,
+        "log_errors": true,
+        "log_warnings": true,
+        "log_info": true
+      },
+      "file_logging": {
+        "enabled": true,
+        "log_file_path": "./logs/bot.log",
+        "max_file_size_mb": 10,
+        "max_log_files": 5,
+        "log_commands": true,
+        "log_errors": true,
+        "log_warnings": true,
+        "log_info": true
+      }
+    },
+    "anti_raid": {
+      "enabled": false,
+      "join_threshold": 5,
+      "time_window": 10,
+      "punishment": "kick",
+      "ban_duration_days": 0,
+      "delete_message_days": 1,
+      "enable_verification": true,
+      "verification_role_id": "VERIFICATION_ROLE_ID_HERE",
+      "auto_disable_after_minutes": 30,
+      "whitelisted_roles": [],
+      "alert_channel_id": "",
+      "ping_roles_on_raid": [],
+      "raid_alert_message": "🚨 **RAID DETECTED** - Anti-raid protection has been activated!",
+      "advanced": {
+        "min_account_age_days": 7,
+        "kick_new_accounts": true,
+        "check_default_avatar": true,
+        "suspicious_username_patterns": [
+          "discord\\.gg",
+          "discord\\.com/invite",
+          "\\bhttps?://",
+          "nitro",
+          "free"
+        ],
+        "block_no_avatar": false,
+        "lockdown_mode": false,
+        "require_verification_during_raid": true,
+        "log_suspicious_joins": true,
+        "max_joins_per_ip": 3,
+        "enable_ip_checking": false
+      }
+    },
+    "backup": {
+      "max_backups": 10,
+      "storage_path": "./backups",
+      "auto_backup_interval_hours": 24,
+      "include": {
+        "roles": true,
+        "channels": true,
+        "permissions": true,
+        "emojis": true,
+        "stickers": true,
+        "webhooks": false
+      },
+      "compress_backups": false,
+      "notification_channel_id": "1312821661182988328",
+      "notify_on_auto_backup": true
+    },
+    "commands": {
+      "enabled": {
+        "infraction": true,
+        "staffinfraction": true,
+        "viewinfractions": true,
+        "removeinfraction": true,
+        "clearinfractions": true,
+        "infractionstats": true,
+        "bulkinfraction": false,
+        "exportinfractions": true,
+        "editinfraction": true,
+        "backup": true,
+        "restore": true,
+        "listbackups": true,
+        "deletebackup": true,
+        "backupinfo": true,
+        "antiraid": false,
+        "antiraidstatus": true,
+        "clearcommands": true,
+        "restartbot": true,
+        "startup": true,
+        "setup": true,
+        "earlyaccess": true,
+        "release": true,
+        "cancel": true,
+        "end": true
+      },
+      "cooldown": {
+        "infraction": 3,
+        "staffinfraction": 3,
+        "viewinfractions": 2,
+        "removeinfraction": 3,
+        "clearinfractions": 5,
+        "infractionstats": 3,
+        "bulkinfraction": 10,
+        "exportinfractions": 10,
+        "editinfraction": 3,
+        "backup": 60,
+        "restore": 120,
+        "listbackups": 5,
+        "deletebackup": 10,
+        "backupinfo": 3,
+        "antiraid": 5,
+        "antiraidstatus": 2,
+        "clearcommands": 60,
+        "restartbot": 60,
+        "startup": 5,
+        "setup": 5,
+        "earlyaccess": 5,
+        "release": 5,
+        "cancel": 5,
+        "end": 5
+      },
+      "ephemeral_responses": {
+        "infraction": false,
+        "staffinfraction": false,
+        "viewinfractions": true,
+        "removeinfraction": true,
+        "clearinfractions": true,
+        "infractionstats": true,
+        "bulkinfraction": false,
+        "exportinfractions": true,
+        "editinfraction": true,
+        "backup": true,
+        "restore": true,
+        "listbackups": true,
+        "deletebackup": true,
+        "backupinfo": true,
+        "antiraid": true,
+        "antiraidstatus": true,
+        "clearcommands": true,
+        "restartbot": true,
+        "startup": false,
+        "setup": false,
+        "earlyaccess": false,
+        "release": false,
+        "cancel": false,
+        "end": false
+      }
+    },
+    "notifications": {
+      "notification_channel_id": "1312821661182988328",
+      "notify_on_startup": false,
+      "startup_message": "✅ Central Greenville Roleplay bot is now online and ready!",
+      "notify_on_shutdown": false,
+      "shutdown_message": "🔴 Central Greenville Roleplay bot is shutting down...",
+      "notify_on_error": true,
+      "error_channel_id": "1312821661182988328",
+      "notify_on_restart": true,
+      "restart_message": "🔄 Bot is restarting..."
+    },
+    "security": {
+      "require_2fa": false,
+      "log_permission_checks": true,
+      "max_evidence_file_size": 10,
+      "allowed_evidence_types": [
+        "image/png",
+        "image/jpeg",
+        "image/jpg",
+        "image/gif",
+        "video/mp4",
+        "video/quicktime",
+        "application/pdf"
+      ],
+      "blocked_words_in_reasons": [],
+      "min_reason_length": 10,
+      "max_reason_length": 500
+    },
+    "advanced": {
+      "debug_mode": true,
+      "data_files": {
+        "infractions": "./infractions.json",
+        "config_backup": "./config_backup.yml"
+      },
+      "auto_save_interval": 300,
+      "retry_failed_operations": true,
+      "max_retries": 3,
+      "retry_delay": 2,
+      "restart": {
+        "enabled": true,
+        "save_before_restart": true,
+        "create_backup_before_restart": true
+      }
+    },
+    "custom_messages": {
+      "no_permission": "❌ You do not have permission to use this command.",
+      "user_not_found": "❌ User not found. Please try again.",
+      "invalid_infraction_id": "❌ Invalid infraction ID. Please check and try again.",
+      "infraction_removed_success": "✅ Infraction successfully removed.",
+      "cannot_remove_staff_infraction": "❌ This is a staff infraction and cannot be removed.",
+      "backup_created_success": "✅ Server backup created successfully!",
+      "backup_restored_success": "✅ Server backup restored successfully!",
+      "no_backups_found": "❌ No backups found.",
+      "antiraid_enabled": "✅ Anti-raid system has been enabled.",
+      "antiraid_disabled": "🔴 Anti-raid system has been disabled.",
+      "command_cooldown": "⏱️ This command is on cooldown. Please wait {time} seconds.",
+      "error_occurred": "❌ An error occurred while executing this command. Please try again later.",
+      "commands_cleared": "✅ All slash commands have been cleared and re-registered successfully.",
+      "bot_restarting": "🔄 Bot is restarting... Please wait.",
+      "no_early_access": "❌ You do not have access to this early access session. You need one of the required roles.",
+      "cohost_set": "✅ Co-host set to {user} for your next session!",
+      "invalid_mention": "❌ Please mention a user! Example: `;co @username`"
+    }
+  }
+}

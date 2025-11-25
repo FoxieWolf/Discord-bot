@@ -1,0 +1,570 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+#                    CENTRAL GREENVILLE ROLEPLAY BOT CONFIGURATION
+# ═══════════════════════════════════════════════════════════════════════════════
+# This file contains ALL bot settings and configurations.
+# Edit values carefully and restart the bot after making changes.
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# ╔═══════════════════════════════════════════════════════════════════════════════╗
+# ║                           BOT AUTHENTICATION                                  ║
+# ╚═══════════════════════════════════════════════════════════════════════════════╝
+bot_token: "MTQzMDM1OTE3NjQwMzc1MDk1Mg.Gu6A3q.8hSS9qxC-UNBZHZdn9sZ-FIgHLNUyvWzGXO5k0"
+
+# ╔═══════════════════════════════════════════════════════════════════════════════╗
+# ║                           SERVER CONFIGURATION                                ║
+# ╚═══════════════════════════════════════════════════════════════════════════════╝
+guild_id: "1312736882265690122"
+
+# Bot presence settings
+presence:
+  # Status: "online", "idle", "dnd", "invisible"
+  status: "online"
+  
+  # Activity type: "PLAYING", "STREAMING", "LISTENING", "WATCHING", "COMPETING"
+  activity_type: "WATCHING"
+  
+  # Activity text (what the bot is doing)
+  activity_text: "Central Greenville Roleplay"
+  
+  # Streaming URL (only used if activity_type is "STREAMING")
+  streaming_url: "https://twitch.tv/your_channel"
+
+# ╔═══════════════════════════════════════════════════════════════════════════════╗
+# ║                           ROLE CONFIGURATION                                  ║
+# ╚═══════════════════════════════════════════════════════════════════════════════╝
+roles:
+  # Role that can issue regular infractions to civilians
+  infraction_permission: "1433566443441754142"
+  
+  # Role that can issue infractions to staff members
+  staff_infraction_permission: "1312822093385044018"
+  
+  # Staff role (used to identify staff members)
+  staff_role: "1312823390834262016"
+  
+  # Moderator role (can view infractions and manage some features)
+  moderator_role: "1312823390834262016"
+  
+  # Admin role (can manage backups and advanced features)
+  admin_role: "1312822093385044018"
+  
+  # Session management role (can use session commands)
+  session_host_role: "1312826964368953416"
+  
+  # Early access roles (can join early access sessions)
+  early_access_roles:
+    - "EARLY_ACCESS_ROLE_ID_1"  # LEO role
+    - "EARLY_ACCESS_ROLE_ID_2"  # Staff role or Server Booster
+
+# ╔═══════════════════════════════════════════════════════════════════════════════╗
+# ║                           OWNER CONFIGURATION                                 ║
+# ╚═══════════════════════════════════════════════════════════════════════════════╝
+# User IDs who have full control over the bot
+# These users can use ALL commands including backups, restore, and anti-raid
+owners:
+  - "881543314397102131"
+  - "935525435540906004"
+  - "981245423534616669"
+
+# ╔═══════════════════════════════════════════════════════════════════════════════╗
+# ║                      SESSION MANAGEMENT CONFIGURATION                         ║
+# ╚═══════════════════════════════════════════════════════════════════════════════╝
+session_management:
+  # Prefix for text commands (like ;co)
+  prefix: ";"
+  
+  # Branding name for embeds
+  server_name: "Ishhs Greenville Roleplay™"
+  
+  # Channel links
+  channels:
+    rules: "1312744272830791680"
+    roleplay_info: "1312744328531021888"
+    vehicle_registration: "1312788701067350116"
+  
+  # Embed images
+  images:
+    startup: "https://cdn.discordapp.com/attachments/1163575789787287652/1441790383163183246/00085C3C-0F6B-4EEA-AED1-5915317CD9A1.jpg?ex=6923136e&is=6921c1ee&hm=a830e095f23fc752b998372437269fbd277dc9017db573e6f3282753a8cb4be2&"
+    setup: "https://cdn.discordapp.com/attachments/1163575789787287652/1441790328175853609/040ADF83-0F24-4414-A22F-47E24FBBC8D9.jpg?ex=69231361&is=6921c1e1&hm=afcf06eba6e2b714b27b07fc2240d5c91f6e32efabfd0c407cc37ba1a5802a47&"
+    earlyaccess: "https://cdn.discordapp.com/attachments/1163575789787287652/1441789775630831677/2B67C670-571C-48A6-8CBC-82A30E2EAB18.jpg?ex=692312dd&is=6921c15d&hm=8fe025a5e1bb28733bf03e88d39ff4d96ab09c40e71a5071b8b0a387dded0e1f&"
+    release: "https://cdn.discordapp.com/attachments/1163575789787287652/1441791302650826782/12043EA4-96FE-4B59-B3EC-44AB8C3611C6.jpg?ex=69231449&is=6921c2c9&hm=a73c144e1769eeb789459f3183a9f83f8fbc1a4296804bf6169ad3f9c205c81e&"
+    cancel: "https://cdn.discordapp.com/attachments/1163575789787287652/1441790642480222229/C763A555-7CE3-40FD-8916-A07B4DAA4625.jpg?ex=692313ac&is=6921c22c&hm=e4a60b0403cf1bf7cda77a9f5b06a76ca8b0f757931d065059036cf47abd67d8&"
+    end: "https://cdn.discordapp.com/attachments/1163575789787287652/1441790547202150480/A4A4C429-ABDF-462E-B64E-7AF66B275ACA.jpg?ex=69231395&is=6921c215&hm=5d5762651c620fda12df4fcaca2e8a92dd1d301705fb34b8a823f9b9314a91e2&"
+  
+  # Embed color (hex)
+  embed_color: "#633c79"
+  
+  # Footer text
+  footer_text: "Property of Ishhs Greenville Roleplay™"
+
+# ╔═══════════════════════════════════════════════════════════════════════════════╗
+# ║                      INFRACTION SYSTEM CONFIGURATION                          ║
+# ╚═══════════════════════════════════════════════════════════════════════════════╝
+
+# Infraction Types (Exactly 3 types required)
+infraction_types:
+  - name: "Infraction 1"
+    display_name: "Infraction 1"
+    role_id: "1320404733227175967"
+    color: 0xFFFF00  # Yellow
+    emoji: "⚠️"
+    description: "Minor violation - First offense"
+  
+  - name: "Infraction 2"
+    display_name: "Infraction 2"
+    role_id: "1320404785324752998"
+    color: 0xFFA500  # Orange
+    emoji: "⛔"
+    description: "Moderate violation - Serious offense"
+  
+  - name: "Infraction 3"
+    display_name: "Infraction 3"
+    role_id: "1320404838055678033"
+    color: 0xFF0000  # Red
+    emoji: "🔨"
+    description: "Major violation - Severe offense"
+
+# Infraction Messages (Shown in embeds)
+infraction_messages:
+  # Message shown for civilian infractions
+  civilian: "You have received an infraction for violating server rules. Please review our community guidelines and ensure this behavior does not continue. Repeated violations may result in further disciplinary action."
+  
+  # Message shown for staff infractions
+  staff: "You have received a staff infraction for violating staff conduct policies. As a staff member of Central Greenville Roleplay, you are held to higher standards of behavior and professionalism. This infraction cannot be removed and will remain permanently on your record."
+
+# Infraction Embed Settings
+infraction_embed:
+  # Footer text line 1
+  footer_line_1: "If you think this infraction was a mistake please open a ticket."
+  
+  # Footer text line 2
+  footer_line_2: "Property of Central Greenville Roleplay."
+  
+  # Show thumbnail in infraction embeds
+  show_thumbnail: true
+  
+  # Thumbnail URL (server icon if empty)
+  thumbnail_url: ""
+  
+  # Include timestamp in embeds
+  include_timestamp: true
+  
+  # Send DM to user when infracted
+  send_dm: true
+  
+  # DM message when user has DMs disabled
+  dm_failed_message: "Could not DM user - they may have DMs disabled."
+
+# ╔═══════════════════════════════════════════════════════════════════════════════╗
+# ║                        LOGGING SYSTEM CONFIGURATION                           ║
+# ╚═══════════════════════════════════════════════════════════════════════════════╝
+logging:
+  # Main log channel where all bot actions are recorded
+  channel_id: "1312821661182988328"
+  
+  # Name for the log channel (used when recreating if deleted)
+  channel_name: "bot-logs"
+  
+  # Channel monitoring interval (seconds) - checks if log channel exists
+  monitor_interval: 5
+  
+  # Enable detailed logging
+  detailed_logs: true
+  
+  # Log user joins/leaves
+  log_member_events: true
+  
+  # Log role changes
+  log_role_changes: true
+  
+  # Log channel modifications
+  log_channel_changes: true
+  
+  # Embed colors for different log types
+  colors:
+    infraction: 0xFF0000      # Red
+    staff_infraction: 0x8B0000  # Dark Red
+    infraction_removed: 0x00FF00  # Green
+    backup_created: 0x00FF00   # Green
+    backup_restored: 0x0099FF  # Blue
+    antiraid_triggered: 0xFF0000  # Red
+    antiraid_toggled: 0xFFA500  # Orange
+    member_join: 0x00FF00      # Green
+    member_leave: 0xFF0000     # Red
+    error: 0xFF0000            # Red
+    warning: 0xFFA500          # Orange
+    info: 0x0099FF             # Blue
+
+  # Terminal and File Logging
+  terminal_logging:
+    enabled: true
+    log_commands: true
+    log_errors: true
+    log_warnings: true
+    log_info: true
+    
+  file_logging:
+    enabled: true
+    log_file_path: "./logs/bot.log"
+    max_file_size_mb: 10
+    max_log_files: 5
+    log_commands: true
+    log_errors: true
+    log_warnings: true
+    log_info: true
+
+# ╔═══════════════════════════════════════════════════════════════════════════════╗
+# ║                       ANTI-RAID SYSTEM CONFIGURATION                          ║
+# ╚═══════════════════════════════════════════════════════════════════════════════╝
+anti_raid:
+  # Enable or disable anti-raid protection
+  enabled: false
+  
+  # Number of joins within time_window to trigger raid detection
+  join_threshold: 5
+  
+  # Time window in seconds to monitor joins
+  time_window: 10
+  
+  # Action to take when raid is detected: "kick", "ban", or "none" (just log)
+  punishment: "kick"
+  
+  # Ban duration in days (0 = permanent, only applies if punishment is "ban")
+  ban_duration_days: 0
+  
+  # Delete message history when banning (days: 0-7)
+  delete_message_days: 1
+  
+  # Enable verification requirement during raids
+  enable_verification: true
+  
+  # Verification role to add during raid
+  verification_role_id: "VERIFICATION_ROLE_ID_HERE"
+  
+  # Automatically disable raid mode after X minutes (0 = manual disable only)
+  auto_disable_after_minutes: 30
+  
+  # Whitelist roles that bypass anti-raid (role IDs)
+  whitelisted_roles: []
+  
+  # Alert channel for raid notifications (uses log channel if empty)
+  alert_channel_id: ""
+  
+  # Ping these roles when raid detected
+  ping_roles_on_raid: []
+  
+  # Custom raid alert message
+  raid_alert_message: "🚨 **RAID DETECTED** - Anti-raid protection has been activated!"
+  
+  # Advanced Anti-Raid Features
+  advanced:
+    # Check account age (in days) - accounts newer than this are suspicious
+    min_account_age_days: 7
+    
+    # Kick accounts that are too new during raid mode
+    kick_new_accounts: true
+    
+    # Check if user has default profile picture
+    check_default_avatar: true
+    
+    # Suspicious username patterns (regex) - blocks users with these patterns
+    suspicious_username_patterns:
+      - "discord\\.gg"
+      - "discord\\.com/invite"
+      - "\\bhttps?://"
+      - "nitro"
+      - "free"
+    
+    # Block users with no avatar during raid
+    block_no_avatar: false
+    
+    # Lockdown mode - prevent ALL new joins during raid
+    lockdown_mode: false
+    
+    # Require captcha/verification for new joins during raid
+    require_verification_during_raid: true
+    
+    # Log suspicious joins even when not in raid mode
+    log_suspicious_joins: true
+    
+    # Maximum joins per IP (requires additional setup)
+    max_joins_per_ip: 3
+    
+    # Enable IP checking (requires external service)
+    enable_ip_checking: false
+
+# ╔═══════════════════════════════════════════════════════════════════════════════╗
+# ║                        BACKUP SYSTEM CONFIGURATION                            ║
+# ╚═══════════════════════════════════════════════════════════════════════════════╝
+backup:
+  # Maximum number of backups to keep (oldest deleted when limit reached)
+  max_backups: 10
+  
+  # Directory where backups are stored (relative to bot location)
+  storage_path: "./backups"
+  
+  # Automatically backup server every X hours (0 = disabled)
+  auto_backup_interval_hours: 24
+  
+  # Include these in backups
+  include:
+    roles: true
+    channels: true
+    permissions: true
+    emojis: true
+    stickers: true
+    webhooks: false
+  
+  # Compress backups (saves space but takes longer)
+  compress_backups: false
+  
+  # Backup notification channel (uses log channel if empty)
+  notification_channel_id: "1312821661182988328"
+  
+  # Notify when automatic backup completes
+  notify_on_auto_backup: true
+
+# ╔═══════════════════════════════════════════════════════════════════════════════╗
+# ║                        COMMAND CONFIGURATION                                  ║
+# ╚═══════════════════════════════════════════════════════════════════════════════╝
+commands:
+  # Enable/disable specific commands
+  enabled:
+    # Infraction commands
+    infraction: true
+    staffinfraction: true
+    viewinfractions: true
+    removeinfraction: true
+    clearinfractions: true
+    infractionstats: true
+    bulkinfraction: false
+    exportinfractions: true
+    editinfraction: true
+    
+    # Backup commands
+    backup: true
+    restore: true
+    listbackups: true
+    deletebackup: true
+    backupinfo: true
+    
+    # Anti-raid commands
+    antiraid: false
+    antiraidstatus: true
+    
+    # Bot management
+    clearcommands: true
+    restartbot: true
+    
+    # Session management commands
+    startup: true
+    setup: true
+    earlyaccess: true
+    release: true
+    cancel: true
+    end: true
+  
+  # Cooldown for commands (seconds) - prevents spam
+  cooldown:
+    infraction: 3
+    staffinfraction: 3
+    viewinfractions: 2
+    removeinfraction: 3
+    clearinfractions: 5
+    infractionstats: 3
+    bulkinfraction: 10
+    exportinfractions: 10
+    editinfraction: 3
+    backup: 60
+    restore: 120
+    listbackups: 5
+    deletebackup: 10
+    backupinfo: 3
+    antiraid: 5
+    antiraidstatus: 2
+    clearcommands: 60
+    restartbot: 60
+    startup: 5
+    setup: 5
+    earlyaccess: 5
+    release: 5
+    cancel: 5
+    end: 5
+  
+  # Show command responses as ephemeral (only visible to command user)
+  ephemeral_responses:
+    infraction: false
+    staffinfraction: false
+    viewinfractions: true
+    removeinfraction: true
+    clearinfractions: true
+    infractionstats: true
+    bulkinfraction: false
+    exportinfractions: true
+    editinfraction: true
+    backup: true
+    restore: true
+    listbackups: true
+    deletebackup: true
+    backupinfo: true
+    antiraid: true
+    antiraidstatus: true
+    clearcommands: true
+    restartbot: true
+    startup: false
+    setup: false
+    earlyaccess: false
+    release: false
+    cancel: false
+    end: false
+
+# ╔═══════════════════════════════════════════════════════════════════════════════╗
+# ║                        NOTIFICATION SETTINGS                                  ║
+# ╚═══════════════════════════════════════════════════════════════════════════════╝
+notifications:
+  # Channel for general bot notifications
+  notification_channel_id: "1312821661182988328"
+  
+  # Notify when bot starts
+  notify_on_startup: false
+  
+  # Startup message
+  startup_message: "✅ Central Greenville Roleplay bot is now online and ready!"
+  
+  # Notify when bot shuts down
+  notify_on_shutdown: false
+  
+  # Shutdown message
+  shutdown_message: "🔴 Central Greenville Roleplay bot is shutting down..."
+  
+  # Notify on errors
+  notify_on_error: true
+  
+  # Error notification channel (uses notification channel if empty)
+  error_channel_id: "1312821661182988328"
+  
+  # Notify on bot restart
+  notify_on_restart: true
+  
+  # Restart message
+  restart_message: "🔄 Bot is restarting..."
+
+# ╔═══════════════════════════════════════════════════════════════════════════════╗
+# ║                        SECURITY SETTINGS                                      ║
+# ╚═══════════════════════════════════════════════════════════════════════════════╝
+security:
+  # Require 2FA for sensitive commands (backup, restore, antiraid)
+  require_2fa: false
+  
+  # Log all permission checks
+  log_permission_checks: true
+  
+  # Maximum evidence file size (MB)
+  max_evidence_file_size: 10
+  
+  # Allowed evidence file types
+  allowed_evidence_types:
+    - "image/png"
+    - "image/jpeg"
+    - "image/jpg"
+    - "image/gif"
+    - "video/mp4"
+    - "video/quicktime"
+    - "application/pdf"
+  
+  # Block certain words in infraction reasons
+  blocked_words_in_reasons: []
+  
+  # Minimum reason length (characters)
+  min_reason_length: 10
+  
+  # Maximum reason length (characters)
+  max_reason_length: 500
+
+# ╔═══════════════════════════════════════════════════════════════════════════════╗
+# ║                        ADVANCED SETTINGS                                      ║
+# ╚═══════════════════════════════════════════════════════════════════════════════╝
+advanced:
+  # Debug mode (verbose console logging)
+  debug_mode: true
+  
+  # Data file locations
+  data_files:
+    infractions: "./infractions.json"
+    config_backup: "./config_backup.yml"
+  
+  # Auto-save interval for data files (seconds)
+  auto_save_interval: 300
+  
+  # Retry failed operations
+  retry_failed_operations: true
+  
+  # Number of retries for failed operations
+  max_retries: 3
+  
+  # Delay between retries (seconds)
+  retry_delay: 2
+  
+  # Bot restart settings
+  restart:
+    enabled: true
+    save_before_restart: true
+    create_backup_before_restart: true
+
+# ╔═══════════════════════════════════════════════════════════════════════════════╗
+# ║                        CUSTOM MESSAGES                                        ║
+# ╚═══════════════════════════════════════════════════════════════════════════════╝
+custom_messages:
+  # Permission denied message
+  no_permission: "❌ You do not have permission to use this command."
+  
+  # User not found message
+  user_not_found: "❌ User not found. Please try again."
+  
+  # Invalid infraction ID message
+  invalid_infraction_id: "❌ Invalid infraction ID. Please check and try again."
+  
+  # Infraction removed successfully
+  infraction_removed_success: "✅ Infraction successfully removed."
+  
+  # Cannot remove staff infraction
+  cannot_remove_staff_infraction: "❌ This is a staff infraction and cannot be removed."
+  
+  # Backup created successfully
+  backup_created_success: "✅ Server backup created successfully!"
+  
+  # Backup restored successfully
+  backup_restored_success: "✅ Server backup restored successfully!"
+  
+  # No backups found
+  no_backups_found: "❌ No backups found."
+  
+  # Anti-raid enabled
+  antiraid_enabled: "✅ Anti-raid system has been enabled."
+  
+  # Anti-raid disabled
+  antiraid_disabled: "🔴 Anti-raid system has been disabled."
+  
+  # Command on cooldown
+  command_cooldown: "⏱️ This command is on cooldown. Please wait {time} seconds."
+  
+  # Error occurred
+  error_occurred: "❌ An error occurred while executing this command. Please try again later."
+  
+  # Commands cleared
+  commands_cleared: "✅ All slash commands have been cleared and re-registered successfully."
+  
+  # Bot restarting
+  bot_restarting: "🔄 Bot is restarting... Please wait."
+  
+  # Session messages
+  no_early_access: "❌ You do not have access to this early access session. You need one of the required roles."
+  cohost_set: "✅ Co-host set to {user} for your next session!"
+  invalid_mention: "❌ Please mention a user! Example: `;co @username`"
+
+# ╔═══════════════════════════════════════════════════════════════════════════════╗
+# ║                    END OF CONFIGURATION FILE                                  ║
+# ╚═══════════════════════════════════════════════════════════════════════════════╝
+# Configuration file version: 3.0.0
+# Last updated: 2025-01-25
+# For support, contact the bot administrator
