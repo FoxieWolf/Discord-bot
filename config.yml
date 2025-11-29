@@ -1,5 +1,5 @@
 # ═══════════════════════════════════════════════════════════════════════════════
-#                    Ishhs GREENVILLE ROLEPLAY BOT CONFIGURATION
+#                                    BOT CONFIGURATION
 # ═══════════════════════════════════════════════════════════════════════════════
 # This file contains ALL bot settings and configurations.
 # Edit values carefully and restart the bot after making changes.
@@ -8,12 +8,12 @@
 # ╔═══════════════════════════════════════════════════════════════════════════════╗
 # ║                           BOT AUTHENTICATION                                  ║
 # ╚═══════════════════════════════════════════════════════════════════════════════╝
-bot_token: "MTQ0MTQ2OTQxNDE4MzgwMDg2Mw.GQWd9b.vxsg9ebtZEFmMtAHhHGItQcEoF7gzvojsAAlPo"
+bot_token: "Your_Token"
 
 # ╔═══════════════════════════════════════════════════════════════════════════════╗
 # ║                           SERVER CONFIGURATION                                ║
 # ╚═══════════════════════════════════════════════════════════════════════════════╝
-guild_id: "1312736882265690122"
+guild_id: "Guild_id"
 
 # Bot presence settings
 presence:
@@ -24,7 +24,7 @@ presence:
   activity_type: "WATCHING"
   
   # Activity text (what the bot is doing)
-  activity_text: "Ishhs Greenville Roleplay"
+  activity_text: "activity_text"
   
   # Streaming URL (only used if activity_type is "STREAMING")
   streaming_url: "https://twitch.tv/your_channel"
@@ -34,27 +34,27 @@ presence:
 # ╚═══════════════════════════════════════════════════════════════════════════════╝
 roles:
   # Role that can issue regular infractions to civilians
-  infraction_permission: "1433566443441754142"
+  infraction_permission: "role_that_has_permission_to_give_out_infractions_id"
   
   # Role that can issue infractions to staff members
-  staff_infraction_permission: "1312822093385044018"
+  staff_infraction_permission: "high_ranking_role_id"
   
   # Staff role (used to identify staff members)
-  staff_role: "1312823390834262016"
+  staff_role: "staff_role_id"
   
   # Moderator role (can view infractions and manage some features)
-  moderator_role: "1312823390834262016"
+  moderator_role: "mod_role_id"
   
   # Admin role (can manage backups and advanced features)
-  admin_role: "1312822093385044018"
+  admin_role: "admin_role_id"
   
   # Session management role (can use session commands)
-  session_host_role: "1312826964368953416"
+  session_host_role: "host_role_id"
   
   # Early access roles (can join early access sessions)
   early_access_roles:
-    - "1320404523621154849"  # EA role
-    - "1435031133896183908"  # Staff role or Server Booster
+    - "ea_id_1"  # EA role
+    - "ea_id_2"  # Staff role or Server Booster
 
 # ╔═══════════════════════════════════════════════════════════════════════════════╗
 # ║                           OWNER CONFIGURATION                                 ║
@@ -62,9 +62,10 @@ roles:
 # User IDs who have full control over the bot
 # These users can use ALL commands including backups, restore, and anti-raid
 owners:
-  - "881543314397102131"
-  - "935525435540906004"
-  - "981245423534616669"
+  - "user_id_1"
+  - "user_id_2"
+# ETC
+
 
 # ╔═══════════════════════════════════════════════════════════════════════════════╗
 # ║                      SESSION MANAGEMENT CONFIGURATION                         ║
@@ -74,102 +75,28 @@ session_management:
   prefix: ";"
   
   # Branding name for embeds
-  server_name: "Ishhs Greenville Roleplay™"
+  server_name: "server_name"
   
   # Channel links
   channels:
-    rules: "1312744272830791680"
-    roleplay_info: "1312744328531021888"
-    vehicle_registration: "1312788701067350116"
+    rules: "rule_channel_id"
+    roleplay_info: "rp_info_id"
+    vehicle_registration: "vehicle_reg_id"
   
   # Embed images
   images:
-    startup: "https://cdn.discordapp.com/attachments/1163575789787287652/1441790383163183246/00085C3C-0F6B-4EEA-AED1-5915317CD9A1.jpg?ex=6923136e&is=6921c1ee&hm=a830e095f23fc752b998372437269fbd277dc9017db573e6f3282753a8cb4be2&"
-    setup: "https://cdn.discordapp.com/attachments/1163575789787287652/1441790328175853609/040ADF83-0F24-4414-A22F-47E24FBBC8D9.jpg?ex=69231361&is=6921c1e1&hm=afcf06eba6e2b714b27b07fc2240d5c91f6e32efabfd0c407cc37ba1a5802a47&"
-    earlyaccess: "https://cdn.discordapp.com/attachments/1163575789787287652/1441789775630831677/2B67C670-571C-48A6-8CBC-82A30E2EAB18.jpg?ex=692312dd&is=6921c15d&hm=8fe025a5e1bb28733bf03e88d39ff4d96ab09c40e71a5071b8b0a387dded0e1f&"
-    release: "https://cdn.discordapp.com/attachments/1163575789787287652/1441791302650826782/12043EA4-96FE-4B59-B3EC-44AB8C3611C6.jpg?ex=69231449&is=6921c2c9&hm=a73c144e1769eeb789459f3183a9f83f8fbc1a4296804bf6169ad3f9c205c81e&"
-    cancel: "https://cdn.discordapp.com/attachments/1163575789787287652/1441790642480222229/C763A555-7CE3-40FD-8916-A07B4DAA4625.jpg?ex=692313ac&is=6921c22c&hm=e4a60b0403cf1bf7cda77a9f5b06a76ca8b0f757931d065059036cf47abd67d8&"
-    end: "https://cdn.discordapp.com/attachments/1163575789787287652/1441790547202150480/A4A4C429-ABDF-462E-B64E-7AF66B275ACA.jpg?ex=69231395&is=6921c215&hm=5d5762651c620fda12df4fcaca2e8a92dd1d301705fb34b8a823f9b9314a91e2&"
+    startup: "link of picture"
+    setup: "link"
+    earlyaccess: "link"
+    release: "link"
+    cancel: "link"
+    end: "link"
   
   # Embed color (hex)
   embed_color: "#633c79"
   
   # Footer text
-  footer_text: "Property of Ishhs Greenville Roleplay™"
-
-# ╔═══════════════════════════════════════════════════════════════════════════════╗
-# ║                      WELCOME & AUTO-ROLE CONFIGURATION                        ║
-# ╚═══════════════════════════════════════════════════════════════════════════════╝
-welcome:
-  # Enable welcome messages
-  enabled: true
-  
-  # Welcome channel ID
-  channel_id: "1312743983973142528"
-  
-  # Welcome message (use {user} for user mention, {server} for server name)
-  message: "Hello {user}, and welcome to  {server}. We thank you for joining us. To gain access within the rest of the server please head to <#1312748668646068246> and Fastpass to a Civilian or just verify with bloxlink to become a Civilian here. If you have any questions or inquiries, please do not hesitate to contact a staff member."
-  
-  # Auto-role when user joins (leave empty to disable)
-  auto_role: "1322884240576348161"
-  
-  # Show user avatar in welcome message
-  show_avatar: true
-  
-  # DM welcome message to new members
-  dm_welcome: false
-  
-  # DM welcome message content
-  dm_message: "Welcome to Ishhs Greenville Roleplay™! We're glad to have you here. Please make sure to read our rules and verify to get full access to the server."
-
-# ╔═══════════════════════════════════════════════════════════════════════════════╗
-# ║                        TICKET SYSTEM CONFIGURATION                            ║
-# ╚═══════════════════════════════════════════════════════════════════════════════╝
-tickets:
-  # Enable ticket system
-  enabled: true
-  
-  # Category where ticket channels are created
-  category_id: "1312745388545015889"
-  
-  # Support team role (can view all tickets)
-  support_role: "1312823390834262016"
-  
-  # Ticket channel naming format (use {username} for user's name, {id} for ticket ID)
-  channel_name_format: "ticket-{username}"
-  
-  # Maximum tickets per user
-  max_tickets_per_user: 3
-  
-  # Auto-close tickets after X hours of inactivity (0 = disabled)
-  auto_close_after_hours: 48
-  
-  # Send transcript to user when ticket closes
-  send_transcript: true
-  
-  # Transcript channel (where closed ticket logs are sent)
-  transcript_channel_id: "1312746250616963083"
-  
-  # Ticket categories/types
-  categories:
-    - name: "General Support"
-      emoji: "🎮"
-      description: "General help and support"
-    - name: "Report Issue"
-      emoji: "⚠️"
-      description: "Report a problem or issue"
-    - name: "Question"
-      emoji: "❓"
-      description: "Ask a question"
-    - name: "Other"
-      emoji: "📋"
-      description: "Other inquiries (e.g. Partnerships)"
-  
-  # Ticket open message
-  open_message: "Thank you for opening a ticket! Our support team will be with you shortly. Please describe your issue in detail."
-  
-  # Ticket close confirmation message
-  close_confirmation: "Are you sure you want to close this ticket? This action cannot be undone."
+  footer_text: "Property of Your server"
 
 # ╔═══════════════════════════════════════════════════════════════════════════════╗
 # ║                      INFRACTION SYSTEM CONFIGURATION                          ║
@@ -179,21 +106,21 @@ tickets:
 infraction_types:
   - name: "Infraction 1"
     display_name: "Infraction 1"
-    role_id: "1320404733227175967"
+    role_id: "id"
     color: 0xFFFF00  # Yellow
     emoji: "⚠️"
     description: "Minor violation - First offense"
   
   - name: "Infraction 2"
     display_name: "Infraction 2"
-    role_id: "1320404785324752998"
+    role_id: "id"
     color: 0xFFA500  # Orange
     emoji: "⛔"
     description: "Moderate violation - Serious offense"
   
   - name: "Infraction 3"
     display_name: "Infraction 3"
-    role_id: "1320404838055678033"
+    role_id: "id"
     color: 0xFF0000  # Red
     emoji: "🔨"
     description: "Major violation - Severe offense"
@@ -212,7 +139,7 @@ infraction_embed:
   footer_line_1: "If you think this infraction was a mistake please open a ticket."
   
   # Footer text line 2
-  footer_line_2: "Property of Ishhs Greenville Roleplay."
+  footer_line_2: "Property of your server."
   
   # Show thumbnail in infraction embeds
   show_thumbnail: true
@@ -234,7 +161,7 @@ infraction_embed:
 # ╚═══════════════════════════════════════════════════════════════════════════════╝
 logging:
   # Main log channel where all bot actions are recorded
-  channel_id: "1312821661182988328"
+  channel_id: "channel_id"
   
   # Name for the log channel (used when recreating if deleted)
   channel_name: "bot-logs"
@@ -408,7 +335,7 @@ backup:
   compress_backups: false
   
   # Backup notification channel (uses log channel if empty)
-  notification_channel_id: "1312821661182988328"
+  notification_channel_id: "channel_id"
   
   # Notify when automatic backup completes
   notify_on_auto_backup: true
@@ -566,25 +493,25 @@ commands:
 # ╚═══════════════════════════════════════════════════════════════════════════════╝
 notifications:
   # Channel for general bot notifications
-  notification_channel_id: "1312821661182988328"
+  notification_channel_id: "channel_id"
   
   # Notify when bot starts
   notify_on_startup: false
   
   # Startup message
-  startup_message: "✅ Ishhs Greenville Roleplay bot is now online and ready!"
+  startup_message: "✅ server name bot is now online and ready!"
   
   # Notify when bot shuts down
   notify_on_shutdown: false
   
   # Shutdown message
-  shutdown_message: "🔴 Ishhs Greenville Roleplay bot is shutting down..."
+  shutdown_message: "🔴 server name bot is shutting down..."
   
   # Notify on errors
   notify_on_error: true
   
   # Error notification channel (uses notification channel if empty)
-  error_channel_id: "1312821661182988328"
+  error_channel_id: "channel_id"
   
   # Notify on bot restart
   notify_on_restart: true
@@ -720,4 +647,4 @@ custom_messages:
 # ╚═══════════════════════════════════════════════════════════════════════════════╝
 # Configuration file version: 4.0.0
 # Last updated: 2025-01-25
-# For support, contact the bot administrator
+# For support, contact the bot founder.
