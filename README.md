@@ -40,6 +40,7 @@ once you did that you are ready to go!
 ## Structure
 
 ```bash
+|-- ITDOES.md
 |-- LICENSE
 |-- README.md
 |-- config.yml
